@@ -1,0 +1,25 @@
+CREATE TABLE product_category (id INT PRIMARY KEY, name VARCHAR(100));
+CREATE TABLE product (
+	id INT PRIMARY KEY,
+	category_id INT NOT NULL,
+	name VARCHAR(100)
+);
+CREATE TABLE user(
+	id INT PRIMARY KEY,
+	vorname VARCHAR(100),
+	name VARCHAR(100),
+  lieblingsprodukt INT NOT NULL,
+	FOREIGN KEY (lieblingsprodukt) REFERENCES product(id)
+);
+INSERT INTO product_category VALUES (1, 'EssenBBB');
+INSERT INTO product_category VALUES (2, 'Werkzeug');
+INSERT INTO product_category VALUES (3, 'Kleidung');
+INSERT INTO product_category VALUES (4, 'Getraenk');
+INSERT INTO product_category VALUES (5, 'Elektrogeraet');
+
+INSERT INTO product VALUES (1, 4, 'Milch');
+INSERT INTO product VALUES (2, 1, 'Ananas');
+INSERT INTO product VALUES (3, 5, 'Apple iPhone 15');
+INSERT INTO product VALUES (4, 2, 'Hammer');
+INSERT INTO product VALUES (5, 1, 'Reis');
+INSERT INTO product VALUES (6, 3, 'Hose');
